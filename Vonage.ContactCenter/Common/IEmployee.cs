@@ -1,13 +1,16 @@
-﻿using Vonage.ContactCenter.Models;
+﻿using System.Collections.Concurrent;
+using Vonage.ContactCenter.Models;
 
 namespace Vonage.ContactCenter.Common
 {
-    public interface IEmployee
+    public interface IEmployee: IComparable<IEmployee>
     {
         string Name { get; init; }
         EmployeeTypeEnum Type { get; init; }
-        IEnumerable<Interaction> RunningInteractions { get; set; }
-        bool IsBusy { get; set; }
+        ICollection<Interaction> RunningInteractions { get; init; }
+        int MaximumInteractionAtATime { get; init; }
+        bool IsFree { get; }
+        bool CanHandleOnlyNonVoice { get; }
         Task HandleInteraction(Interaction interaction);
     }
 }
