@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+  contact-service:
+    build: .
+    ports: 
+      - "9070:80"

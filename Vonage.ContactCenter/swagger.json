@@ -1,0 +1,108 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Vonage.ContactCenter",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Interactions": {
+      "post": {
+        "tags": [
+          "Interactions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandleInteractionDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandleInteractionDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HandleInteractionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandleInteractionResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandleInteractionResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HandleInteractionResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EmployeeTypeEnum": {
+        "enum": [
+          "Agent",
+          "Supervisor",
+          "GeneralManager"
+        ],
+        "type": "string"
+      },
+      "HandleInteractionDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/InteractionTypeEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HandleInteractionResponseDto": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/InteractionStatusEnum"
+          },
+          "handledBy": {
+            "$ref": "#/components/schemas/EmployeeTypeEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InteractionStatusEnum": {
+        "enum": [
+          "Running",
+          "Rejected"
+        ],
+        "type": "string"
+      },
+      "InteractionTypeEnum": {
+        "enum": [
+          "Voice",
+          "NonVoice"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}
