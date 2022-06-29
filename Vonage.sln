@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vonage.ContactCenter", "Von
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vonage.ContactCenter.Tests", "Vonage.ContactCenter.Tests\Vonage.ContactCenter.Tests.csproj", "{C3DEEF49-B8A2-4E04-8B8D-9BD471F6741F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vonage.ContactCenter.IntegrationTests", "Vonage.ContactCenter.IntegrationTests\Vonage.ContactCenter.IntegrationTests.csproj", "{42D9372A-A405-455E-A9A3-352E64C07047}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3DEEF49-B8A2-4E04-8B8D-9BD471F6741F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3DEEF49-B8A2-4E04-8B8D-9BD471F6741F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3DEEF49-B8A2-4E04-8B8D-9BD471F6741F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D9372A-A405-455E-A9A3-352E64C07047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D9372A-A405-455E-A9A3-352E64C07047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D9372A-A405-455E-A9A3-352E64C07047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D9372A-A405-455E-A9A3-352E64C07047}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
