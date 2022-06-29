@@ -21,3 +21,67 @@ The contact center allocates the incoming interactions in a specific way.
 3. In case the Supervisor cannot handle the interaction, it needs to be forwarded further, this time
    to the General Manager.
 4. If no-one can handle the interaction, the strategy is to reject that interaction.
+
+# How to test it
+
+## 2 ways to test the apis:
+
+- Using VS and Swagger UI
+- running docker-compose up and access services from postman (baseUrl: http://localhost:9070)
+
+## Handle Interaction api
+
+you can access the service using this url: /api/interactions
+this is a post method, you can then pass the type of the interaction as below:
+
+```json
+{
+  "type": "Voice"
+}
+```
+
+or
+
+```json
+{
+  "type": "NonVoice"
+}
+```
+
+## response
+
+this is sample of the responses:
+
+```json
+{
+  "response": "Agent_1 is handling the Voice interaction",
+  "status": "Running",
+  "handledBy": "Agent"
+}
+{
+    "response": "There is no free employee can handle this Voice interaction now",
+    "status": "Rejected",
+    "handledBy": null
+}
+```
+
+# how to configure the app
+
+you can configure the service settings in Vonage.ContactCenter.appsettings.json file
+
+```json
+"ServiceSettings": {
+    "AgentsNumber": 3, // number of Agents
+    "SupervisorsNumber": 2, // number of supervisors
+    "AverageVoiceInteractionInMilliseconds": 240000, // voice interaction take 4 mins to be handled
+    "AverageNonVoiceInteractionInMilliseconds": 120000 // voice interaction take 2 mins to be handled
+  }
+```
+
+## Solution architecture and technologies used
+
+Solution consists of 3 projects:
+
+- Backend "Vonage.ContactCenter" which is .Net6 web api
+- Vonage.ContactCenter.Tests contains unit tests using xunit
+- Vonage.ContactCenter.IntegrationTests contains integration tests using xunit
