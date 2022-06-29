@@ -74,7 +74,7 @@ you can configure the service settings in Vonage.ContactCenter.appsettings.json 
     "AgentsNumber": 3, // number of Agents
     "SupervisorsNumber": 2, // number of supervisors
     "AverageVoiceInteractionInMilliseconds": 240000, // voice interaction take 4 mins to be handled
-    "AverageNonVoiceInteractionInMilliseconds": 120000 // voice interaction take 2 mins to be handled
+    "AverageNonVoiceInteractionInMilliseconds": 120000 // Nonvoice interaction take 2 mins to be handled
   }
 ```
 
