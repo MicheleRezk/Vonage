@@ -34,11 +34,11 @@ namespace Vonage.ContactCenter.Services
             if (employee == null)
             {
                 var msg = $"There is no free employee can handle this {interaction.Type} interaction now";
-                return new HandleInteractionResponseDto(msg, InteractionStatusEnum.Rejected);
+                return new HandleInteractionResponseDto(msg, InteractionStatusEnum.Rejected, null);
             }
             employee.HandleInteraction(interaction);
             var responseMsg = $"{employee.Name} is handling the {interaction.Type} interaction";
-            return new HandleInteractionResponseDto(responseMsg, InteractionStatusEnum.Running);
+            return new HandleInteractionResponseDto(responseMsg, InteractionStatusEnum.Running, employee.Type);
 
         }
     }
