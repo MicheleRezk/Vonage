@@ -2,14 +2,14 @@
 {
     public class Interaction
     {
+        public Guid Id { get; init; }
         public InteractionTypeEnum Type { get; init; }
-        public Task Task { get; set; }
-
-        
-        public Interaction(InteractionTypeEnum type, TimeSpan executeAfter, Action<Task> afterCompilation)
+        public int CompletesAfterMilliseconds { get; init; }
+        public Interaction(InteractionTypeEnum type, int completesAfterMilliseconds)
         {
             Type = type;
-            Task.Delay(executeAfter).ContinueWith(afterCompilation);
+            CompletesAfterMilliseconds = completesAfterMilliseconds;
+            Id = Guid.NewGuid();
         }
     }
 }
